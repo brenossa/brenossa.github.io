@@ -60,6 +60,20 @@
             color: #ffffff;
         }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -592,6 +606,68 @@
                 left: 26px;
             }
         }
+
+        /* Mobile burger menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: #ffffff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                z-index: 999;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: #001940;
+                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+                padding-top: 80px;
+                transition: 0.4s ease-in-out;
+                z-index: 998;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 20px;
+                text-align: center;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -600,6 +676,11 @@
         <div class="container">
             <nav>
                 <div class="logo">BRENO DANTAS</div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -853,8 +934,34 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // If menu is open, close it after clicking a link
+                if (document.querySelector('.nav-links').classList.contains('active')) {
+                    toggleMenu();
+                }
             });
         });
+        
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        }
+        
+        mobileMenu.addEventListener('click', toggleMenu);
+        
+        // Add no-scroll style
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                .no-scroll {
+                    overflow: hidden;
+                }
+            </style>
+        `);
     </script>
 </body>
 </html>

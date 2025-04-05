@@ -500,6 +500,98 @@
                 left: 5%;
             }
         }
+
+        /* Experience timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50px;
+            width: 3px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 80px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 46px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            transform: translateX(-50%);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #cccccc;
+        }
+
+        .timeline-content {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-content h3 {
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h4 {
+            color: #cccccc;
+            font-weight: normal;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+            color: #f5f5f5;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline-dot {
+                left: 26px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -511,7 +603,7 @@
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <!-- <li><a href="#projects">Projects</a></li> -->
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -525,7 +617,7 @@
             <div class="hero-content">
                 <h1>Bridging Development & Quality Assurance</h1>
                 <p>Creating robust, scalable, and high-quality software solutions</p>
-                <a href="#projects" class="btn">View My Work</a>
+                <a href="#experience" class="btn">View My Experience</a>
             </div>
         </div>
     </section>
@@ -637,6 +729,76 @@
                     <div class="skill-item">MongoDB</div>
                     <div class="skill-item">Clean Code</div>
                     <div class="skill-item">Clean Architecture</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jun 2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3>QA Engineer</h3>
+                        <h4>DBC Company</h4>
+                        <ul>
+                            <li>Execute comprehensive manual and automated testing for web, API, and mobile applications</li>
+                            <li>Develop and maintain automated test suites in Java and JavaScript using Selenium, Selenide, Cypress, and Appium</li>
+                            <li>Design and execute RESTful API test plans with Postman and Rest Assured, identifying over 100+ integration-level defects</li>
+                            <li>Integrate regression testing into CI/CD pipelines to ensure rapid feedback and reduce deployment issues</li>
+                            <li>Utilize SonarQube for static code analysis to improve code quality and maintainability</li>
+                            <li>Simulate high-load environments using JMeter to uncover performance bottlenecks</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Dec 2023 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Full Stack Developer</h3>
+                        <h4>Omnicode Solutions</h4>
+                        <ul>
+                            <li>Work on continuous development and maintenance of web applications using Django and Django REST Framework</li>
+                            <li>Contribute to building and improving application features, fixing bugs, and refactoring code</li>
+                            <li>Integrate third-party APIs and ensure smooth and secure backend communication</li>
+                            <li>Write and maintain unit and end-to-end tests to ensure code quality and reduce production incidents</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Feb 2024 - Mar 2024</div>
+                    <div class="timeline-content">
+                        <h3>Backend Developer</h3>
+                        <h4>TimeSaver (Freelance)</h4>
+                        <ul>
+                            <li>Developed and maintained RESTful APIs using Flask, ensuring clean, scalable, and well-documented back-end services</li>
+                            <li>Integrated third-party systems and internal tools through automation scripts</li>
+                            <li>Streamlined workflows and improved operational efficiency across teams</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Mar 2023 - Jan 2024</div>
+                    <div class="timeline-content">
+                        <h3>Software Developer</h3>
+                        <h4>Nexxo Inteligência Empresarial</h4>
+                        <ul>
+                            <li>Implemented Clean Code principles and Clean Architecture within Agile/Scrum teams</li>
+                            <li>Engineered automation scripts and RPA bots using Selenium, PyAutoGUI, and Pandas to reduce manual tasks by 70%</li>
+                            <li>Designed and maintained robust web scrapers for large-scale data extraction across multiple platforms</li>
+                            <li>Dockerized backend services and APIs, integrating MongoDB for efficient and flexible data storage</li>
+                            <li>Collaborated with cross-functional teams using Git and GitHub for version control in Agile environments</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

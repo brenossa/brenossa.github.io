@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="dev-icon.png" type="image/x-icon">
+    <title>Breno Dantas - Software Engineer & QA Automation</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #f5f5f5;
+            background-color: #001133;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            transition: opacity 0.3s;
+        }
+        
+        a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #001940;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Main content sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: #002255;
+        }
+        
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ffffff;
+        }
+        
+        /* Hero section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #001133;
+            padding-top: 80px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><path d="M300 50 A250 250 0 1 0 300 550 A250 250 0 1 0 300 50 Z M300 100 A200 200 0 1 1 300 500 A200 200 0 1 1 300 100 Z M300 150 A150 150 0 1 0 300 450 A150 150 0 1 0 300 150 Z M300 200 A100 100 0 1 1 300 400 A100 100 0 1 1 300 200 Z M300 250 A50 50 0 1 0 300 350 A50 50 0 1 0 300 250 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: #fff;
+            padding: 12px 24px;
+            border: 2px solid #ffffff;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ffffff;
+            color: #001133;
+            opacity: 1;
+        }
+        
+        /* About section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        /* Projects section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .project-info p {
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+        
+        /* Skills section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .skill-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .skill-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Skills categories */
+        .skills-category {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .skills-category h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-size: 22px;
+        }
+        
+        /* Contact section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;
+            color: #ffffff;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffffff;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #001940;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: #fff;
+            font-size: 24px;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Banner design */
+        .banner {
+            height: 200px;
+            background-color: #001133;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            text-align: right;
+        }
+        
+        .banner-content h2 {
+            font-size: 36px;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .banner-content p {
+            font-size: 18px;
+            color: #cccccc;
+        }
+        
+        .banner-content:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: #ffffff;
+            bottom: -15px;
+            right: 0;
+        }
+        
+        .banner-circles {
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .circle {
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .circle-1 {
+            width: 180px;
+            height: 180px;
+        }
+        
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            left: 15px;
+            top: 15px;
+        }
+        
+        .circle-3 {
+            width: 120px;
+            height: 120px;
+            left: 30px;
+            top: 30px;
+        }
+        
+        .circle-4 {
+            width: 90px;
+            height: 90px;
+            left: 45px;
+            top: 45px;
+        }
+        
+        .circle-5 {
+            width: 60px;
+            height: 60px;
+            left: 60px;
+            top: 60px;
+        }
+        
+        .right-circles {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            overflow: hidden;
+        }
+        
+        .right-circle {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+        }
+        
+        .right-circle-1 {
+            width: 300px;
+            height: 300px;
+            right: -150px;
+            top: -100px;
+        }
+        
+        .right-circle-2 {
+            width: 250px;
+            height: 250px;
+            right: -125px;
+            top: -75px;
+        }
+        
+        .right-circle-3 {
+            width: 200px;
+            height: 200px;
+            right: -100px;
+            top: -50px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .banner-content {
+                right: 5%;
+            }
+            
+            .banner-circles {
+                left: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">BRENO DANTAS</div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <!-- <li><a href="#projects">Projects</a></li> -->
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bridging Development & Quality Assurance</h1>
+                <p>Creating robust, scalable, and high-quality software solutions</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="breno-dantas-picture.png" alt="Breno Dantas">
+                </div>
+                <div class="about-text">
+                    <p>I'm a passionate and results-driven Full-Stack Software Engineer with a strong focus on Python development and QA Automation Engineering. I have a proven ability to deliver scalable, testable, and high-quality software solutions in fast-paced, Agile environments.</p>
+                    <p>Experienced in the full development lifecycle — from backend architecture and RESTful API development to automated testing and CI/CD pipelines. I bring a hybrid mindset, bridging both development and quality assurance to ensure robust, clean, and maintainable code.</p>
+                    <p>Bilingual in English and Portuguese, with excellent communication skills and proven success working in distributed international teams. I thrive in Agile/Scrum workflows and consistently advocate for Clean Code and Clean Architecture best practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/300" alt="API Automation Framework">
+                    </div>
+                    <div class="project-info">
+                        <h3>API Automation Framework</h3>
+                        <p>Designed and implemented an end-to-end API testing framework using Python, Pytest, and Request libraries, reducing regression testing time by 70% and increasing test coverage by 45%.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/300" alt="Django Microservices">
+                    </div>
+                    <div class="project-info">
+                        <h3>Microservices Architecture</h3>
+                        <p>Developed a scalable microservices system using Django, FastAPI, and Docker. Implemented CI/CD pipelines with GitLab CI, reducing deployment time and enhancing overall system reliability.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/300" alt="E2E Testing Suite">
+                    </div>
+                    <div class="project-info">
+                        <h3>E2E Testing Suite</h3>
+                        <p>Built a comprehensive end-to-end testing framework using Selenium and Cypress, implementing BDD approaches with Cucumber. Reduced critical bugs in production by 80% through automated regression testing.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            
+            <div class="skills-category">
+                <h3>Languages & Frameworks</h3>
+                <div class="skills-container">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Django</div>
+                    <div class="skill-item">FastAPI</div>
+                    <div class="skill-item">Flask</div>
+                    <div class="skill-item">JavaScript (ES6+)</div>
+                    <div class="skill-item">HTML5</div>
+                    <div class="skill-item">CSS3</div>
+                    <div class="skill-item">Java</div>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3>Test Automation & QA</h3>
+                <div class="skills-container">
+                    <div class="skill-item">Selenium</div>
+                    <div class="skill-item">Pytest</div>
+                    <div class="skill-item">RestAssured</div>
+                    <div class="skill-item">JUnit</div>
+                    <div class="skill-item">Cypress</div>
+                    <div class="skill-item">Appium</div>
+                    <div class="skill-item">TDD</div>
+                    <div class="skill-item">BDD</div>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h3>DevOps & Tools</h3>
+                <div class="skills-container">
+                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">GitLab CI/CD</div>
+                    <div class="skill-item">GitHub Actions</div>
+                    <div class="skill-item">Linux (Debian/Ubuntu)</div>
+                    <div class="skill-item">PostgreSQL</div>
+                    <div class="skill-item">MongoDB</div>
+                    <div class="skill-item">Clean Code</div>
+                    <div class="skill-item">Clean Architecture</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/brenodantasdev/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/brenossa" target="_blank">GitHub</a>
+            </div>
+            <p>&copy; 2025 Breno Dantas. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
